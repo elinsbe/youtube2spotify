@@ -59,10 +59,11 @@ if __name__ == "__main__":
     home_dir = os.path.expanduser("~")
     music_dir = os.path.join(home_dir, "Music")
     os.chdir(music_dir)
-    other_path = input("Would you like to use another directory [y/n]? ")
+    other_path = input("Would you like to use another directory? [y/n] ")
     if (other_path == "y"):
         new_path = input("Write path: ")
         os.chdir(new_path)
+
     url = input("URL: ")
     artist = input(str("Enter Artist: "))
 
