@@ -27,16 +27,23 @@ def get_audio(link):
     except Exception as e:
         print(f"An error has occurred: {e}")
 
-
 def m4a_to_mp3(filename: str):
     """
     Converts the audio from m4a to mp3 since Spotify does not accept m4a files
     """
-    print("Converting from m4a to mp3...")
+    cut_audio = input("Would you like to cut the audio? [y/n] ")
     m4a_file = AudioSegment.from_file(filename + ".m4a", format="m4a")
+    
+    if (cut_audio == "y"):
+        start_point = int(input("Write which second you would like the audio to start: "))
+        end_point = int(input("Write the end second you would like the audio to end: "))
+        m4a_file = m4a_file[1000 * start_point: 1000 * end_point]
+    print("Converting...")
     m4a_file.export(filename + ".mp3", format="mp3")
     print("Converted!")
     os.remove(filename + ".m4a")
+
+    
 
 def set_artist(filename: str, artist: str):
     """
