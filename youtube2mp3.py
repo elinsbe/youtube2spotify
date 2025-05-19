@@ -4,7 +4,7 @@ import eyed3
 import os
 
 
-def getAudio(link):
+def get_audio(link):
     """
     Downloads the audio from the URL to a m4a file
     """
@@ -28,7 +28,7 @@ def getAudio(link):
         print(f"An error has occurred: {e}")
 
 
-def m4aToMp3(filename: str):
+def m4a_to_mp3(filename: str):
     """
     Converts the audio from m4a to mp3 since Spotify does not accept m4a files
     """
@@ -38,7 +38,7 @@ def m4aToMp3(filename: str):
     print("Converted!")
     os.remove(filename + ".m4a")
 
-def setArtist(filename: str, artist: str):
+def set_artist(filename: str, artist: str):
     """
     Gives the file a proper artist on Spotify so it is easier to search for
     """
@@ -59,6 +59,8 @@ if __name__ == "__main__":
     url = input("URL: ")
     artist = input(str("Enter Artist: "))
 
-    title = getAudio(url)
-    m4aToMp3(title)
-    setArtist(title, artist)
+    title = get_audio(url)
+    m4a_to_mp3(title)
+    set_artist(title, artist)
+
+    
